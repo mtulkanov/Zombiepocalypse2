@@ -1,4 +1,4 @@
 interface System {
-    fun init(engine: Engine)
-    fun update(event: Event)
+    fun init(eventSource: EventSource, componentStore: ComponentStore)
+    fun notify(event: Event)
 }

@@ -27,9 +27,8 @@ class Game() {
             delta += (currentTime - lastTime) / TIME_PER_TICK
             lastTime = currentTime
             if (delta >= 1) {
-                val currentFps = delta * TARGET_FPS
+                engine.update(delta)
                 delta--
-                engine.update()
             }
         }
     }

@@ -5,7 +5,7 @@ import java.awt.Dimension
 import java.awt.Frame
 import javax.swing.JFrame
 
-class Display(val title: String, val width: Int, val height: Int) {
+class Display(title: String, width: Int, height: Int) {
 
     private val canvas: Canvas
 
@@ -24,8 +24,8 @@ class Display(val title: String, val width: Int, val height: Int) {
 
     init {
         frame = JFrame(title)
+        frame.setSize(width, height)
         with(frame) {
-            setSize(width, height)
             defaultCloseOperation = JFrame.EXIT_ON_CLOSE
             isResizable = false
             setLocationRelativeTo(null)
@@ -33,5 +33,9 @@ class Display(val title: String, val width: Int, val height: Int) {
             add(canvas)
             pack()
         }
+    }
+
+    fun updateTitle(title: String) {
+        frame.title = title
     }
 }

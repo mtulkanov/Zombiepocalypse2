@@ -1,24 +1,27 @@
-import render.BackgroundRenderer
+import render.RendererSystem
+import java.util.*
 import kotlin.reflect.KClass
 
 class Engine {
 
-    private val eventSystemMap = mutableMapOf<KClass<out Event>, System>()
-    private val eventQueue = mutableListOf<Event>()
+    private val eventQueue = LinkedList<Event>()
+    private val eventSource = EventSource()
+    private val componentStore = ComponentStore()
 
     fun init() {
-        BackgroundRenderer().init(this)
+        RendererSystem().init(eventSource, componentStore)
     }
 
-    fun registerForEvent(system: System, eventClass: KClass<out Event>) {
-        eventSystemMap[eventClass] = system
-    }
-
-    fun update() {
-        eventQueue.add(TickEvent())
-        eventQueue.forEach {
-            eventSystemMap[it::class]?.update(it)
+    fun update(fps: Double) {
+        eventQueue.add(TickEvent(fps))
+        val iterator = eventQueue.iterator()
+        while (iterator.hasNext()) {
+            val event = iterator.next()
+            iterator.remove()
+            eventSource.notify(event)
+            if (event is TickEvent) {
+                return
+            }
         }
-        eventQueue.clear()
     }
 }
