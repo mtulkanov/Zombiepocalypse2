@@ -1,4 +1,4 @@
-import render.RendereSystem
+import render.RenderSystem
 import java.util.*
 
 class Engine {
@@ -8,7 +8,7 @@ class Engine {
     private val componentStore = ComponentStore()
 
     fun init() {
-        RendereSystem().init(eventSource, componentStore)
+        RenderSystem().init(eventSource, componentStore)
     }
 
     fun update(fps: Double) {

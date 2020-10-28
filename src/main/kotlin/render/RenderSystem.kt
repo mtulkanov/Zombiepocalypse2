@@ -6,7 +6,7 @@ import EventSource
 import System
 import TickEvent
 
-class RendereSystem : System {
+class RenderSystem : System {
 
     companion object {
         private const val title = ""
