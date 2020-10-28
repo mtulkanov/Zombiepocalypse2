@@ -1,6 +1,5 @@
-import render.RendererSystem
+import render.RendereSystem
 import java.util.*
-import kotlin.reflect.KClass
 
 class Engine {
 
@@ -9,7 +8,7 @@ class Engine {
     private val componentStore = ComponentStore()
 
     fun init() {
-        RendererSystem().init(eventSource, componentStore)
+        RendereSystem().init(eventSource, componentStore)
     }
 
     fun update(fps: Double) {
