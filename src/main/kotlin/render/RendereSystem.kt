@@ -26,11 +26,15 @@ class RendereSystem : System {
 
     override fun notify(event: Event) {
         if (event is TickEvent) {
-            fpsCounter.addDelta(event.delta)
-            if (fpsCounter.isFpsReady()) {
-                val title = "Current fps: %.2f".format(fpsCounter.getFps())
-                display.updateTitle(title)
-            }
+            handleTickEvent(event)
+        }
+    }
+
+    private fun handleTickEvent(event: TickEvent) {
+        fpsCounter.addDelta(event.delta)
+        if (fpsCounter.isFpsReady()) {
+            val title = "Current fps: %.2f".format(fpsCounter.getFps())
+            display.updateTitle(title)
         }
     }
 }
