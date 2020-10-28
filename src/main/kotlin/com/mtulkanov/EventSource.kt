@@ -1,3 +1,5 @@
+package com.mtulkanov
+
 import java.util.*
 
 class EventSource {

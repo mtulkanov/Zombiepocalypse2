@@ -1,4 +1,6 @@
-fun main(args: Array<String>) {
+package com.mtulkanov
+
+fun main() {
     val game = Game()
     game.start()
 }

@@ -1,4 +1,4 @@
-package render
+package com.mtulkanov.render
 
 import java.awt.Canvas
 import java.awt.Dimension

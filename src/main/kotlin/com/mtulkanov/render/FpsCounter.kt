@@ -1,4 +1,4 @@
-package render
+package com.mtulkanov.render
 
 class FpsCounter(val fps: Int) {
 

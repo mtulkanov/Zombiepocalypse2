@@ -1,10 +1,6 @@
-package render
+package com.mtulkanov.render
 
-import ComponentStore
-import Event
-import EventSource
-import System
-import TickEvent
+import com.mtulkanov.*
 
 class RenderSystem : System {
 

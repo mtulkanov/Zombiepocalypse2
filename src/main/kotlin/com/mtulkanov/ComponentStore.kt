@@ -1,3 +1,5 @@
+package com.mtulkanov
+
 class ComponentStore {
 
     private var nextEntity = 0

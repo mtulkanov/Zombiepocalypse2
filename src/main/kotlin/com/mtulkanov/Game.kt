@@ -1,11 +1,16 @@
+package com.mtulkanov
+
 import kotlin.concurrent.thread
 
 import java.lang.System
+import kotlin.math.round
+import kotlin.math.roundToLong
 
 class Game() {
     companion object {
         private const val TARGET_FPS = 60
         private const val TIME_PER_TICK = 1_000.0 / TARGET_FPS
+        private const val TIME_TO_SLEEP = 1L
     }
 
     private val engine = Engine()
@@ -30,6 +35,7 @@ class Game() {
                 engine.update(delta)
                 delta--
             }
+            Thread.sleep(TIME_TO_SLEEP)
         }
     }
 }

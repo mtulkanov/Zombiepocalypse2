@@ -1,4 +1,6 @@
-import render.RenderSystem
+package com.mtulkanov
+
+import com.mtulkanov.render.RenderSystem
 import java.util.*
 
 class Engine {
