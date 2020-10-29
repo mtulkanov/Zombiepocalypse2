@@ -11,8 +11,7 @@ class Display(title: String, width: Int, height: Int) {
 
     init {
         val dimension = Dimension(width, height)
-        canvas = Canvas()
-        with(canvas) {
+        canvas = Canvas().apply {
             preferredSize = dimension
             maximumSize = dimension
             minimumSize = dimension
@@ -23,9 +22,8 @@ class Display(title: String, width: Int, height: Int) {
     private val frame: Frame
 
     init {
-        frame = JFrame(title)
-        frame.setSize(width, height)
-        with(frame) {
+        frame = JFrame(title).apply {
+            setSize(width, height)
             defaultCloseOperation = JFrame.EXIT_ON_CLOSE
             isResizable = false
             setLocationRelativeTo(null)
